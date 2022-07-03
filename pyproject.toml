@@ -5,7 +5,7 @@ description = "A Documenation Portal that Describe Future Worktypes for UTK's Di
 authors = ["Mark Baggett <mbagget1@utk.edu>"]
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.8"
 Sphinx = "^5.0.2"
 sphinx-rtd-theme = "^1.0.0"
 
