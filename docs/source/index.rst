@@ -1,15 +1,16 @@
-.. UTK Future DC Worktypes documentation master file, created by
-   sphinx-quickstart on Sun Jul  3 09:59:19 2022.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+UTK Future DC Worktypes
+=======================
 
-Welcome to UTK Future DC Worktypes's documentation!
-===================================================
+The documentation here describes how we plan to model content for our future repository.
+
+Worktypes
+--------------
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 1
+   :glob:
 
+   contents/*
 
 
 Indices and tables

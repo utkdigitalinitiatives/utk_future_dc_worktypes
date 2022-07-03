@@ -1,0 +1,23 @@
+@prefix : <https://location-of-future-repository/extra/paths/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix fedora:  <http://fedora.info/definitions/v4/repository#> .
+@prefix pcdm: <http://pcdm.org/models#> .
+@prefix pcdmuse: <http://pcdm.org/use#> .
+@prefix pcdmworks: <http://pcdm.org/works#> .
+
+:sample-generic-work a pcdmworks:Work ;
+    dcterms:title "A Sample WARC" ;
+    pcdm:hasMember :sample-warc ;
+    pcdm:hasFile :sample-tn .
+
+:sample-warc a pcdmworks:Fileset ;
+    pcdm:memberOf :sample-generic-work ;
+    pcdm:hasFile :sample-warc-preservation .
+
+:sample-warc-preservation a pcdmuse:PreservationFile ;
+    pcdm:memberOf :sample-warc ;
+    fedora:hasVersions :sample-warc-actual-file .
+
+:sample-tn a pcdmuse:ThumbnailImage ;
+    pcdm:memberOf :sample-generic-work ;
+    fedora:hasVersions :sample-warc-tn .
