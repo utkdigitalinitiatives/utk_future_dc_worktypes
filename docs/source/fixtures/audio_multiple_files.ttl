@@ -1,0 +1,82 @@
+@prefix : <https://location-of-future-repository/extra/paths/> .
+@prefix bibframe: <http://id.loc.gov/ontologies/bibframe/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix fedora:  <http://fedora.info/definitions/v4/repository#> .
+@prefix iana:  <http://www.iana.org/assignments/relation/> .
+@prefix identifiers: <http://id.loc.gov/vocabulary/identifiers/> .
+@prefix ore: <http://www.openarchives.org/ore/terms/> .
+@prefix pcdm: <http://pcdm.org/models#> .
+@prefix pcdmff: <http://pcdm.org/file-format-types#> .
+@prefix pcdmuse: <http://pcdm.org/use#> .
+@prefix pcdmworks: <http://pcdm.org/works#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:sample-audio-multi a pcdmworks:Work ;
+    dcterms:title "McClain, William A.: WWII Oral History" ;
+    identifiers:local "wwiioh:2002", "wwiioh:2003"  ;
+    iana:first :proxy-for-sample-audio-range-part1 ;
+    iana:last :proxy-for-sample-audio-range-part2 ;
+    bibframe:duration 3373 ;
+    pcdm:hasMember :sample-audio-multi-original-mods, :sample-audio-range-part1, :sample-audio-range-part2 .
+
+:sample-audio-range-part1 a pcdmworks:Range ;
+    rdfs:label "Part 1";
+    pcdm:hasMember :sample-audo-multi-fileset-part1 .
+
+:sample-audio-range-part2 a pcdmworks:Range ;
+    rdfs:label "Part 2";
+    pcdm:hasMember :sample-audo-multi-fileset-part2 .
+
+:sample-audio-multi-original-mods a pcdmworks:Fileset ;
+    rdfs:label "MODS from Islandora - Fileset" ;
+    pcdm:memberOf :sample-audio-multi ;
+    pcdm:hasFile :sample-audio-multi-file-mods-xml .
+
+:sample-audio-multi-mods-xml a pcdmff:Markup ;
+    rdfs:label "MODS XML from Islandora" ;
+    pcdm:fileOf :sample-audio-multi-original-mods ;
+    fedora:hasVersions :path-to-the-actual-mods .
+
+:sample-audio-multi-fileset-part1 a pcdmworks:Fileset ;
+    rdfs:label "Audio Files for McClain, William A.: WWII Oral History - Part 1" ;
+    pcdm:memberOf :sample-audio-multi ;
+    pcdm:hasFile :sample-file-intermediate, :sample-file-preservation .
+
+:sample-file-preservation a pcdmuse:PreservationFile, pcdmff:Audio ;
+    rdfs:label "Preservation File for McClain, William A.: WWII Oral History - Part 1" ;
+    pcdm:fileOf :sample-audio-multi-fileset-part1 ;
+    bibframe:duration 1519 ;
+    fedora:hasVersions :path-to-the-preservation-file-for-sample-file-preservation-part1 .
+
+:sample-file-intermediate a pcdmuse:IntermediateFile, pcdmff:Audio ;
+    rdfs:label "Intermediate File for McClain, William A.: WWII Oral History - Part 1" ;
+    pcdm:fileOf :sample-audio-multi-fileset-part1 ;
+    bibframe:duration 1519 ;
+    fedora:hasVersions :path-to-the-intermediate-file-for-sample-file-intermediate-part-1 .
+
+:sample-audio-multi-fileset-part2 a pcdmworks:Fileset ;
+    rdfs:label "Audio Files for McClain, William A.: WWII Oral History - Part 2" ;
+    pcdm:memberOf :sample-audio-multi ;
+    pcdm:hasFile :sample-file-intermediate, :sample-file-preservation .
+
+:sample-file-preservation a pcdmuse:PreservationFile, pcdmff:Audio ;
+    rdfs:label "Preservation File for McClain, William A.: WWII Oral History - Part 2" ;
+    pcdm:fileOf :sample-audio-multi-fileset-part2 ;
+    bibframe:duration 1854 ;
+    fedora:hasVersions :path-to-the-preservation-file-for-sample-file-preservation-part2 .
+
+:sample-file-intermediate a pcdmuse:IntermediateFile, pcdmff:Audio ;
+    rdfs:label "Intermediate File for Interview with Andrea Ludden, 2017-02-06" ;
+    pcdm:fileOf :sample-audio-multi-fileset-part2 ;
+    bibframe:duration 1854 ;
+    fedora:hasVersions :path-to-the-preservation-file-for-sample-file-intermediate-part2 .
+
+:proxy-for-sample-audio-range-part1 a ore:Proxy ;
+    iana:next :proxy-for-sample-audio-range-part2 ;
+    ore:proxyIn :sample-audio-multi ;
+    ore:proxyFor :sample-audio-range-part1 .
+
+:proxy-for-sample-audio-range-part2 a ore:Proxy ;
+    iana:prev :proxy-for-sample-audio-range-part1 ;
+    ore:proxyIn :sample-audio-multi ;
+    ore:proxyFor :sample-audio-range-part2 .

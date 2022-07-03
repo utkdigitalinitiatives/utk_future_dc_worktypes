@@ -1,0 +1,63 @@
+@prefix : <https://location-of-future-repository/extra/paths/> .
+@prefix bibframe: <http://id.loc.gov/ontologies/bibframe/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix fedora:  <http://fedora.info/definitions/v4/repository#> .
+@prefix identifiers: <http://id.loc.gov/vocabulary/identifiers/> .
+@prefix pcdm: <http://pcdm.org/models#> .
+@prefix pcdmff: <http://pcdm.org/file-format-types#> .
+@prefix pcdmuse: <http://pcdm.org/use#> .
+@prefix pcdmworks: <http://pcdm.org/works#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:sample-audio a pcdmworks:Work ;
+    dcterms:title "Interview with Andrea Ludden, 2017-02-06" ;
+    identifiers:local "Andrea_Ludden_2_6_17_RNC014", "rfta:118" ;
+    pcdm:hasMember :sample-audio-original-mods, :sample-audio-fileset, :sample-audio-release, :sample-audio-transcript .
+
+:sample-audio-original-mods a pcdmworks:Fileset ;
+    rdfs:label "MODS from Islandora - Fileset" ;
+    pcdm:memberOf :sample-audio ;
+    pcdm:hasFile :sample-file-mods-xml .
+
+:sample-file-mods-xml a pcdmff:Markup ;
+    rdfs:label "MODS XML from Islandora" ;
+    pcdm:fileOf :sample-audio-original-mods ;
+    fedora:hasVersions :path-to-the-actual-mods .
+
+:sample-audio-fileset a pcdmworks:Fileset ;
+    rdfs:label "Audio Files for Interview with Andrea Ludden, 2017-02-06" ;
+    pcdm:memberOf :sample-audio ;
+    pcdm:hasFile :sample-file-intermediate, :sample-file-preservation .
+
+:sample-file-preservation a pcdmuse:PreservationFile, pcdmff:Audio ;
+    rdfs:label "Preservation File for Interview with Andrea Ludden, 2017-02-06" ;
+    pcdm:fileOf :sample-audio-fileset ;
+    bibframe:duration 2349 ;
+    fedora:hasVersions :path-to-the-preservation-file-for-sample-file-preservation .
+
+:sample-file-intermediate a pcdmuse:IntermediateFile, pcdmff:Audio ;
+    rdfs:label "Intermediate File for Interview with Andrea Ludden, 2017-02-06" ;
+    pcdm:fileOf :sample-audio-fileset ;
+    bibframe:duration 2349 ;
+    fedora:hasVersions :path-to-the-preservation-file-for-sample-file-intermediate .
+
+:sample-audio-release a pcdmworks:Fileset ;
+    rdfs:label "Release File for Interview with Andrea Ludden, 2017-02-06" ;
+    pcdm:memberOf :sample-audio ;
+    pcdm:hasFile :sample-release-file .
+
+:sample-release-file a pcdmff:Document ;
+    rdfs:label "Release File for Interview with Andrea Ludden, 2017-02-06" ;
+    pcdm:fileOf :sample-audio-release ;
+    fedora:hasVersions :path-to-the-actual-release-file .
+
+:sample-audio-transcript a pcdmworks:Fileset ;
+    rdfs:label "Transcripts for Interview with Andrea Ludden, 2017-02-06" ;
+    pcdm:memberOf :sample-audio ;
+    pcdm:hasFile :sample-english-transcript .
+
+:sample-english-transcript a pcdmuse:Transcript ;
+    rdfs:label "English Web/VTT Interview with Andrea Ludden, 2017-02-06" ;
+    pcdm:fileOf :sample-audio-release ;
+    dcterms:language "en" ;
+    fedora:hasVersions :path-to-the-actual-transcript .
