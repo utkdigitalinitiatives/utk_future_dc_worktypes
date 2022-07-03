@@ -1,0 +1,170 @@
+@prefix : <https://location-of-future-repository/extra/paths/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix fedora:  <http://fedora.info/definitions/v4/repository#> .
+@prefix iana:  <http://www.iana.org/assignments/relation/> .
+@prefix identifiers: <http://id.loc.gov/vocabulary/identifiers/> .
+@prefix ore: <http://www.openarchives.org/ore/terms/> .
+@prefix pcdm: <http://pcdm.org/models#> .
+@prefix pcdmff: <http://pcdm.org/file-format-types#> .
+@prefix pcdmuse: <http://pcdm.org/use#> .
+@prefix pcdmworks: <http://pcdm.org/works#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:sample-book a pcdmworks:Work ;
+    dcterms:title "Air scoop : 63rd C.T.D., hot pilot. Volume 1, Number 3" ;
+    identifiers:local "ascoop:1507160011", "airscoop_vol1-no3" ;
+    iana:first :proxy-for-sample-book-page-1 ;
+    iana:last :proxy-for-sample-book-page-4 ;
+    pcdm:hasMember :sample-book-original-mods, :sample-book-generated-pdf, :sample-book-page-1, :sample-book-page-2, :sample-book-page-3, :sample-book-page-4 .
+
+:sample-book-original-mods a pcdmworks:Fileset ;
+    rdfs:label "MODS from Islandora - Fileset" ;
+    pcdm:memberOf :sample-book ;
+    pcdm:hasFile :sample-file-mods-xml .
+
+:sample-file-mods-xml a pcdmff:Markup ;
+    rdfs:label "MODS XML from Islandora" ;
+    pcdm:fileOf :sample-book-original-mods ;
+    fedora:hasVersions :path-to-the-actual-mods .
+
+:sample-book-generated-pdf a pcdmworks:Fileset ;
+    rdfs:label "PDF Download of Entire Book" ;
+    pcdm:memberOf :sample-book ;
+    pcdm:hasFile :sample-file-pdf .
+
+:sampe-file-pdf a pcdmff:Document ;
+    rdfs:label "PDF Download of Entire Book: Auto-Generated PDF" ;
+    pcdm:fileOf :sample-book-generated-pdf ;
+    fedora:hasVersions :path-to-the-actual-pdf.
+
+:sample-book-page-1 a pcdm:object ;
+    rdfs:label "Air scoop : 63rd C.T.D., hot pilot. Volume 1, Number 3 : page 1" ;
+    pcdm:memberOf :sample-book ;
+    pcdm:hasMember :sample-book-page-1-fileset .
+
+:sample-book-page-1-fileset a pcdmworks:Fileset ;
+    rdfs:label "Page 1 of Sample Book" ;
+    pcdm:memberOf :sample-book-page-1 ;
+    pcdm:hasFile :sample-book-page-1-preservation, :sample-book-page-1-intermediate, :sample-book-page-1-HOCR, :sample-book-page-1-OCR .
+
+:sample-book-page-1-preservation a pcdmuse:PreservationFile, pcdmff:Image ;
+    rdfs:label "Preservation File for Sample Book Page 1" ;
+    pcdm:fileOf :sample-book-page-1-fileset ;
+    fedora:hasVersions :path-to-the-preservation-file-for-sample-book-page-1 .
+
+:sample-book-page-1-intermediate a pcdmuse:IntermediateFile, pcdmff:Image ;
+    rdfs:label "Intermediate File for Sample Book Page 1" ;
+    pcdm:fileOf :sample-book-page-1-fileset ;
+    fedora:hasVersions :path-to-the-intermediate-file-for-sample-book-page-1 .
+
+:sample-book-page-1-hocr a pcdmff:HTML ;
+    rdfs:label "HOCR File for Sample Book Page 1" ;
+    pcdm:fileOf :sample-book-page-1-fileset ;
+    fedora:hasVersions :path-to-the-HOCR-file-for-sample-book-page-1 .
+
+:sample-book-page-1-ocr a pcdmuse:ExtractedText ;
+    rdfs:label "OCR File for Sample Book Page 1" ;
+    pcdm:fileOf :sample-book-page-1-fileset ;
+    fedora:hasVersions :path-to-the-OCR-file-for-sample-book-page-1 .
+
+:sample-book-page-2 a pcdm:Object ;
+    rdfs:label "Air scoop : 63rd C.T.D., hot pilot. Volume 1, Number 3 : page 2" ;
+    pcdm:memberOf :sample-book ;
+    pcdm:hasMember :sample-book-page-2-fileset .
+
+:sample-book-page-2-fileset a pcdmworks:Fileset ;
+    rdfs:label "Page 2 of Sample Book" ;
+    pcdm:memberOf :sample-book-page-2 ;
+    pcdm:hasFile :sample-book-page-2-preservation, :sample-book-page-2-intermediate, :sample-book-page-2-HOCR, :sample-book-page-2-OCR .
+
+:sample-book-page-2-preservation a pcdmuse:PreservationFile, pcdmff:Image ;
+    rdfs:label "Preservation File for Sample Book Page 2" ;
+    pcdm:fileOf :sample-book-page-2-fileset ;
+    fedora:hasVersions :path-to-the-preservation-file-for-sample-book-page-2 .
+
+:sample-book-page-2-intermediate a pcdmuse:IntermediateFile, pcdmff:Image ;
+    rdfs:label "Intermediate File for Sample Book Page 2" ;
+    pcdm:fileOf :sample-book-page-2-fileset ;
+    fedora:hasVersions :path-to-the-intermediate-file-for-sample-book-page-2 .
+
+:sample-book-page-2-hocr a pcdmff:HTML ;
+    rdfs:label "HOCR File for Sample Book Page 2" ;
+    pcdm:fileOf :sample-book-page-2-fileset ;
+    fedora:hasVersions :path-to-the-HOCR-file-for-sample-book-page-2 .
+
+:sample-book-page-2-ocr a pcdmuse:ExtractedText ;
+    rdfs:label "OCR File for Sample Book Page 2" ;
+    pcdm:fileOf :sample-book-page-2-fileset ;
+    fedora:hasVersions :path-to-the-OCR-file-for-sample-book-page-2 .
+
+:sample-book-page-3 a pcdm:Object ;
+    rdfs:label "Air scoop : 63rd C.T.D., hot pilot. Volume 1, Number 3 : page 3" ;
+    pcdm:memberOf :sample-book ;
+    pcdm:hasMember :sample-book-page-3-fileset .
+
+:sample-book-page-3-fileset a pcdmworks:Fileset ;
+    rdfs:label "Page 3 of Sample Book" ;
+    pcdm:memberOf :sample-book-page-3 ;
+    pcdm:hasFile :sample-book-page-3-preservation, :sample-book-page-3-HOCR, :sample-book-page-3-OCR .
+
+:sample-book-page-3-preservation a pcdmuse:PreservationFile, pcdmuse:IntermediateFile, pcdmff:Image ;
+    rdfs:label "Preservation and Intemediate File for Sample Book Page 3" ;
+    pcdm:fileOf :sample-book-page-3-fileset ;
+    fedora:hasVersions :path-to-the-preservation-file-for-sample-book-page-3 .
+
+:sample-book-page-3-hocr a pcdmff:HTML ;
+    rdfs:label "HOCR File for Sample Book Page 3" ;
+    pcdm:fileOf :sample-book-page-3-fileset ;
+    fedora:hasVersions :path-to-the-HOCR-file-for-sample-book-page-3 .
+
+:sample-book-page-3-ocr a pcdmuse:ExtractedText ;
+    rdfs:label "OCR File for Sample Book Page 3" ;
+    pcdm:fileOf :sample-book-page-3-fileset ;
+    fedora:hasVersions :path-to-the-OCR-file-for-sample-book-page-3 .
+
+:sample-book-page-4 a pcdm:Object ;
+    rdfs:label "Air scoop : 63rd C.T.D., hot pilot. Volume 1, Number 3 : page 4" ;
+    pcdm:memberOf :sample-book ;
+    pcdm:hasMember :sample-book-page-4-fileset .
+
+:sample-book-page-4-fileset a pcdmworks:Fileset ;
+    rdfs:label "Page 4 of Sample Book" ;
+    pcdm:memberOf :sample-book-page-4 ;
+    pcdm:hasFile :sample-book-page-4-preservation, :sample-book-page-4-HOCR, :sample-book-page-4-OCR .
+
+:sample-book-page-4-preservation a pcdmuse:PreservationFile, pcdmuse:IntermediateFile, pcdmff:Image ;
+    rdfs:label "Preservation and Intemediate File for Sample Book Page 4" ;
+    pcdm:fileOf :sample-book-page-4-fileset ;
+    fedora:hasVersions :path-to-the-preservation-file-for-sample-book-page-4 .
+
+:sample-book-page-4-hocr a pcdmff:HTML ;
+    rdfs:label "HOCR File for Sample Book Page 4" ;
+    pcdm:fileOf :sample-book-page-4-fileset ;
+    fedora:hasVersions :path-to-the-HOCR-file-for-sample-book-page-4 .
+
+:sample-book-page-4-ocr a pcdmuse:ExtractedText ;
+    rdfs:label "OCR File for Sample Book Page 4" ;
+    pcdm:fileOf :sample-book-page-4-fileset ;
+    fedora:hasVersions :path-to-the-OCR-file-for-sample-book-page-4 .
+
+:proxy-for-sample-book-page-1 a ore:Proxy ;
+    iana:next :proxy-for-sample-book-page-2 ;
+    ore:proxyIn :sample-book ;
+    ore:proxyFor :sample-book-page-1 .
+
+:proxy-for-sample-book-page-2 a ore:Proxy ;
+    iana:prev :proxy-for-sample-book-page-1 ;
+    iana:next :proxy-for-sample-book-page-3 ;
+    ore:proxyIn :sample-book ;
+    ore:proxyFor :sample-book-page-2 .
+
+:proxy-for-sample-book-page-3 a ore:Proxy ;
+    iana:prev :proxy-for-sample-book-page-2 ;
+    iana:next :proxy-for-sample-book-page-4 ;
+    ore:proxyIn :sample-book ;
+    ore:proxyFor :sample-book-page-3 .
+
+:proxy-for-sample-book-page-4 a ore:Proxy ;
+    iana:prev :proxy-for-sample-book-page-3 ;
+    ore:proxyIn :sample-book ;
+    ore:proxyFor :sample-book-page-4 .
