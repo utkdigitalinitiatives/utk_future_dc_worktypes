@@ -114,6 +114,8 @@ Export
 In addition to import functionality, images should have a variety of export options including the ability to export only
 filesets related to preservation for easy transfer to Chronopolis.  Those filesets should be:
 
+* :code:`pcdmuse:PreservationFile`
+
 ---------
 Analytics
 ---------
