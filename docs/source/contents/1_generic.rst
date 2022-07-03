@@ -74,7 +74,7 @@ Rights Viewing
 ==============
 
 While we store our rights as uris (see metadata application profile), we’d like these statements to be actionable and
-render the appropriate badge and usage information to the user in both the IIIF viewer (when metadata is on) and in our metadata display below.
+render the appropriate badge and usage information to the user.
 
 File Viewer
 ===========
