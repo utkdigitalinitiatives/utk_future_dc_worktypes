@@ -1,0 +1,40 @@
+@prefix : <https://location-of-future-repository/extra/paths/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix fedora:  <http://fedora.info/definitions/v4/repository#> .
+@prefix identifiers: <http://id.loc.gov/vocabulary/identifiers/> .
+@prefix pcdm: <http://pcdm.org/models#> .
+@prefix pcdmff: <http://pcdm.org/file-format-types#> .
+@prefix pcdmuse: <http://pcdm.org/use#> .
+@prefix pcdmworks: <http://pcdm.org/works#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:sample-image-work a pcdmworks:Work ;
+    dcterms:title "A Dog Left Behind" ;
+    identifiers:local "RFTA_Braddock_003", "rftaart:3" ;
+    pcdm:hasMember :sample-image-original-mods, :sample-image-work-images .
+
+:sample-image-original-mods a pcdmworks:Fileset ;
+    rdfs:label "MODS from Islandora - Fileset" ;
+    pcdm:memberOf :sample-image-work ;
+    pcdm:hasFile :sample-file-mods-xml .
+
+:sample-file-mods-xml a pcdmff:Markup ;
+    rdfs:label "MODS XML from Islandora" ;
+    pcdm:fileOf :sample-image-original-mods ;
+    fedora:hasVersions :path-to-the-actual-mods .
+
+:sample-image-work-images a pcdmworks:Fileset ;
+    pcdm:memberOf :sample-image-work ;
+    pcdm:hasFile :sample-image-preservation, :sample-image-intermediate, :sample-image-tn .
+
+:sample-image-preservation a pcdmuse:PreservationFile, pcdmff:Image ;
+    pcdm:fileOf :sample-image-work-images ;
+    fedora:hasVersions :path-to-the-preservation-file .
+
+:sample-image-intermediate a pcdmuse:IntermediateFile, pcdmff:Image ;
+    pcdm:fileOf :sample-image-work-images ;
+    fedora:hasVersions :path-to-the-intermediate-file .
+
+:sample-image-tn a pcdmuse:ThumbnailImage ;
+    pcdm:fileOf :sample-image-work-images ;
+    fedora:hasVersions :path-to-the-thumbnail-file .
