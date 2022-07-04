@@ -1,0 +1,83 @@
+@prefix : <https://location-of-future-repository/extra/paths/> .
+@prefix bibframe: <http://id.loc.gov/ontologies/bibframe/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix fedora:  <http://fedora.info/definitions/v4/repository#> .
+@prefix iana:  <http://www.iana.org/assignments/relation/> .
+@prefix identifiers: <http://id.loc.gov/vocabulary/identifiers/> .
+@prefix ore: <http://www.openarchives.org/ore/terms/> .
+@prefix pcdm: <http://pcdm.org/models#> .
+@prefix pcdmff: <http://pcdm.org/file-format-types#> .
+@prefix pcdmuse: <http://pcdm.org/use#> .
+@prefix pcdmworks: <http://pcdm.org/works#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:sample_newspaper_collection a pcdm:Collection ;
+        dcterms:title "Student Newspapers" ;
+        pcdm:hasMember :sample_newspaper_title .
+
+:sample_newspaper_title a pcdmworks:Work ;
+        dcterms:title "Daily Beacon" ;
+        pcdm:hasMember :sample_newspaper_volume .
+
+:sample_newspaper_volume a pcdmworks:Work ;
+        dcterms:title "Daily Beacon: Volume 1" ;
+        pcdm:hasMember :sample_newspaper_issue .
+
+:sample_newspaper_issue a pcdmworks:Work ;
+        dcterms:title "Daily Beacon: Volume 1, Issue 1" ;
+        pcdm:hasMember :sample_newspaper_page_1, :sample_newspaper_page_2 ;
+        pcdm:hasFile :sample_newspaper_issue_mets .
+
+:sample_newspaper_issue_mets a pcdmff:Markup ;
+        rdfs:label "METS" ;
+        fedora:hasVersions :path-to-mets .
+
+:sample_newspaper_page_1 a pcdm:Object ;
+        rdfs:label "Daily Beacon: Volume, 1, Issue 1 - page 1" ;
+        pcdm:hasMember :sample_newspaper_page_1_fileset .
+
+:sample_newspaper_page_2 a pcdm:Object ;
+        rdfs:label "Daily Beacon: Volume, 1, Issue 1 - page 1" ;
+        pcdm:hasMember :sample_newspaper_page_2_fileset .
+
+:sample_newspaper_page_1_fileset a pcdmworks:Fileset ;
+        rdfs:label "Images and Derivatives" ;
+        pcdm:hasFile :sample_newspaper_page_1_intermediate, :sample_newspaper_page_1_preservation, :sample_newspaper_page_1_alto .
+
+:sample_newspaper_page_1_intermediate a pcdmuse:IntermediateFile, pcdmff:Image ;
+        rdfs:label "Intermediate File for Daily Beacon: Volume, 1, Issue 1 - page 1" ;
+        fedora:hasVersions :path-to-sample_newspaper_page_1_intermediate .
+
+:sample_newspaper_page_1_preservation a pcdmuse:PreservationFile, pcdmff:Image ;
+        rdfs:label "Preservation File for Daily Beacon: Volume, 1, Issue 1 - page 1" ;
+        fedora:hasVersions :path-to-sample_newspaper_page_1_preservation .
+
+:sample_newspaper_page_1_alto a pcdmuse:ExtractedText ;
+        rdfs:label "Alto XML for Daily Beacon: Volume, 1, Issue 1 - page 1" ;
+        fedora:hasVersions :path-to-sample_newspaper_page_1_intermediate .
+
+:sample_newspaper_page_2_fileset a pcdmworks:Fileset ;
+        rdfs:label "Images and Derivatives" ;
+        pcdm:hasFile :sample_newspaper_page_2_intermediate, :sample_newspaper_page_2_preservation, :sample_newspaper_page_2_alto .
+
+:sample_newspaper_page_2_intermediate a pcdmuse:IntermediateFile, pcdmff:Image ;
+        rdfs:label "Intermediate File for Daily Beacon: Volume, 1, Issue 1 - page 2" ;
+        fedora:hasVersions :path-to-sample_newspaper_page_2_intermediate .
+
+:sample_newspaper_page_2_preservation a pcdmuse:PreservationFile, pcdmff:Image ;
+        rdfs:label "Preservation File for Daily Beacon: Volume, 1, Issue 1 - page 2" ;
+        fedora:hasVersions :path-to-sample_newspaper_page_2_preservation .
+
+:sample_newspaper_page_2_alto a pcdmuse:ExtractedText ;
+        rdfs:label "Alto XML for Daily Beacon: Volume, 1, Issue 1 - page 2" ;
+        fedora:hasVersions :path-to-sample_newspaper_page_2_intermediate .
+
+:proxy-for-sample_newspaper_page_1 a ore:Proxy ;
+    iana:next :proxy-for-sample_newspaper_page_2 ;
+    ore:proxyIn :sample_newspaper_issue ;
+    ore:proxyFor :sample_newspaper_page2 .
+
+:proxy-for-sample_newspaper_page_2 a ore:Proxy ;
+    iana:prev :proxy-for-sample_newspaper_page_1 ;
+    ore:proxyIn :sample_newspaper_issue ;
+    ore:proxyFor :sample_newspaper_page2 .
