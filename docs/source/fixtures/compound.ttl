@@ -1,0 +1,137 @@
+@prefix : <https://location-of-future-repository/extra/paths/> .
+@prefix bibframe: <http://id.loc.gov/ontologies/bibframe/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix fedora:  <http://fedora.info/definitions/v4/repository#> .
+@prefix iana:  <http://www.iana.org/assignments/relation/> .
+@prefix identifiers: <http://id.loc.gov/vocabulary/identifiers/> .
+@prefix ore: <http://www.openarchives.org/ore/terms/> .
+@prefix pcdm: <http://pcdm.org/models#> .
+@prefix pcdmff: <http://pcdm.org/file-format-types#> .
+@prefix pcdmuse: <http://pcdm.org/use#> .
+@prefix pcdmworks: <http://pcdm.org/works#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+:sample-rfta-artist-compound-object a pcdmworks:Work ;
+    dcterms:title "A Dog Left Behind" ;
+    identifiers:local "rftaart:76" ;
+    iana:first :proxy-for-sample-rfta-artist-compound-object-part1 ;
+    iana:last :proxy-for-sample-rfta-artist-compound-object-part2 ;
+    pcdm:hasMember :sample-rfta-artist-compound-mods, :sample-rfta-artist-compound-object-tn, :rftaartists_3, :rftaartists_53 .
+
+:sample-rfta-artist-compound-mods a pcdmworks:Fileset ;
+    rdfs:label "MODS from Islandora - Fileset" ;
+    pcdm:memberOf :sample-rfta-artist-compound-object ;
+    pcdm:hasFile :sample-file-mods-xml .
+
+:sample-file-mods-xml a pcdmff:Markup ;
+    rdfs:label "MODS XML from Islandora" ;
+    pcdm:fileOf :sample-rfta-artist-compound-mods ;
+    fedora:hasVersions :path-to-the-actual-mods .
+
+:sample-rfta-artist-compound-object-tn a pcdmworks:Fileset ;
+    rdfs:label "TN for A Dog Left Behind" ;
+    pcdm:memberOf :sample-rfta-artist-compound-object ;
+    pcdm:hasFile :sample-rfta-artist-compound-object-file-tn .
+
+:sample-rfta-artist-compound-object-file-tn a pcdmff:Document ;
+    rdfs:label "Representative Thumbnail for A Dog Left Behind" ;
+    pcdm:fileOf :sample-rfta-artist-compound-tn ;
+    fedora:hasVersions :path-to-the-actual-cached-tn .
+
+:rftaartists_3 a pcdmworks:Work ;
+    dcterms:title "A Dog Left Behind" ;
+    identifiers:local "rftaart:3", "RFTA_Braddock_003" ;
+    pcdm:hasMember :rftaartists_3-original-mods, :rftaartists_3-images .
+
+:rftaartists_3-original-mods a pcdmworks:Fileset ;
+    rdfs:label "MODS from Islandora - Fileset" ;
+    pcdm:memberOf :rftaartists_3 ;
+    pcdm:hasFile :og_mods_for_rftaartists_3 .
+
+:og_mods_for_rftaartists_3 a pcdmff:Markup ;
+    rdfs:label "MODS XML from Islandora" ;
+    pcdm:fileOf :rftaartists_3-original-mods ;
+    fedora:hasVersions :path-to-the-actual-mods-for_rftaartists_3 .
+
+:rftaartists_3-images a pcdmworks:Fileset ;
+    rdfs:label "Images for A Dog Left Behind" ;
+    pcdm:memberOf :rftaartists_3 ;
+    pcdm:hasFile :rftaartists_3-intermediate, :rftaartists_3-preservation .
+
+:rftaartists_3-intermediate a pcdmuse:IntermediateFile, pcdmff:Image ;
+    rdfs:label "Intermediate File for A Dog Left Behind" ;
+    pcdm:fileOf :rftaartists_3 ;
+    fedora:hasVersions :path-to-the-intermediate-file-for-rftaartists_3 .
+
+:rftaartists_3-preservation a pcdmuse:PreservationFile, pcdmff:Image ;
+    rdfs:label "Preservation File for A Dog Left Behind" ;
+    pcdm:fileOf :rftaartists_3 ;
+    fedora:hasVersions :path-to-the-preservation-file-for-rftaartists_3 .
+
+:rftaartists_53 a pcdmworks:Work ;
+    dcterms:title "Bring Me the Animals" ;
+    identifiers:local "rftaart:53" ;
+    pcdm:hasMember :rftaartists_53-original-mods, :rftaartists_53-videos, :rftaartists_53-transcripts, :rftaartists_53-curated-tn .
+
+:rftaartists_53-original-mods a pcdmworks:Fileset ;
+    rdfs:label "MODS from Islandora - Fileset" ;
+    pcdm:memberOf :rftaartists_53 ;
+    pcdm:hasFile :og_mods_for_rftaartists_53 .
+
+:og_mods_for_rftaartists_53 a pcdmff:Markup ;
+    rdfs:label "MODS XML from Islandora" ;
+    pcdm:fileOf :rftaartists_53-original-mods ;
+    fedora:hasVersions :path-to-the-actual-mods-for_rftaartists_53 .
+
+:rftaartists_53-videos a pcdmworks:Fileset ;
+    rdfs:label "Videos for Bring Me the Animals" ;
+    pcdm:memberOf :rftaartists_53 ;
+    pcdm:hasFile :rftaartists_53-intermediate, :rftaartists_53-preservation .
+
+:rftaartists_53-intermediate a pcdmuse:IntermediateFile, pcdmff:Video ;
+    rdfs:label "Intermediate File for Bring Me the Animals" ;
+    pcdm:fileOf :rftaartists_53 ;
+    fedora:hasVersions :path-to-the-intermediate-file-for-rftaartists_53 .
+
+:rftaartists_53-preservation a pcdmuse:PreservationFile, pcdmff:Video ;
+    rdfs:label "Preservation File for Bring Me the Animals" ;
+    pcdm:fileOf :rftaartists_53 ;
+    fedora:hasVersions :path-to-the-preservation-file-for-rftaartists_53 .
+
+:rftaartists_53-transcripts a pcdmworks:Fileset ;
+    rdfs:label "Captions and Subtitles for Bring Me the Animals" ;
+    pcdm:memberOf :rftaartists_53 ;
+    pcdm:hasFile :rftaartists_53-transcript-en  .
+
+:rftaartists_53-transcript-en a pcdmuse:Transcript ;
+    rdfs:label "English Caption Files of Bring Me the Animals" ;
+    pcdm:fileOf :rftaartists_53-transcripts ;
+    fedora:hasVersions :path-to-the-actual-english-transcript .
+
+:rftaartists_53-curated-TN a pcdmworks:Fileset ;
+    rdfs:label "Curated Thumbnail for Bring Me the Animals" ;
+    pcdm:memberOf :rftaartists_53 ;
+    pcdm:hasFile :rftaartists_53-curated-tn  .
+
+:rftaartists_53-curated-tn a pcdmuse:ThumbnailImage ;
+    rdfs:label "Curated TN for Bring Me the Animals" ;
+    pcdm:fileOf :rftaartists_53-curated-tn ;
+    fedora:hasVersions :path-to-the-actual-curated-tn .
+
+:proxy-for-sample-rfta-artist-compound-object-part1 a ore:Proxy ;
+    iana:next :proxy-for-sample-rfta-artist-compound-object-part2 ;
+    ore:proxyIn :sample-rfta-artist-compound-object ;
+    ore:proxyFor :rftaartists_3 .
+
+:proxy-for-sample-rfta-artist-compound-object-part2 a ore:Proxy ;
+    iana:prev :proxy-for-sample-rfta-artist-compound-object-part1 ;
+    ore:proxyIn :sample-rfta-artist-compound-object ;
+    ore:proxyFor :rftaartists_53 .
+
+:sample-collection-for-rfta-curated-art a pcdm:Collection ;
+    dcterms:title "Rising from the Ashes: The Chimney Tops 2 Wildfires in Memory and Art" ;
+    pcdm:hasMember :sample-rfta-artist-compound-object .
+
+:sample-collection-for-all-rftaart a pcdm:Collection ;
+    dcterms:title "All RFTA Artists Art" ;
+    pcdm:hasMember :rftaartists_3, :rftaartists_53 .
