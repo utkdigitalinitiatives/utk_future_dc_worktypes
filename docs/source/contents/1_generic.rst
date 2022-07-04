@@ -68,6 +68,9 @@ Some sample location-based display might be:
 .. figure:: ../images/location_based_3.png
     :alt: Location-based Example 3
 
+.. figure:: ../images/clemson_location.png
+    :alt: Location-based Example 4
+
 If possible, we would also like our location information to be shared as a `navPlace` extension in our IIIF manifests.
 
 Rights Viewing
