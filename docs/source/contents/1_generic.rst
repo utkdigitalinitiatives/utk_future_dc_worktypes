@@ -6,12 +6,12 @@ Generic Work
 About
 -----
 
-Generic works are where the primary fileset(s) are binary with no complex expectations for user experience or viewer in
+Generic works are works where the primary fileset(s) are binary with no complex expectations for user experience or viewer in
 the browser. Instead, the primary purpose of this work type is to preserve and make available to users binary file types
 such as WARCs or born digital objects.
 
-The generic work will only ever have `pcdmuse:PreservationFile` files and never `pcdmuse:IntermediateFile`s. The work
-may have a curated thumbnail or a thumbnail represented by the work type.
+The generic work will only ever have :code:`pcdmuse:PreservationFile` files and never :code:`pcdmuse:IntermediateFile`s.
+The work may have a curated thumbnail or a thumbnail represented by the work type.
 
 All filesets may have restrictions that prohibit view / access.
 
