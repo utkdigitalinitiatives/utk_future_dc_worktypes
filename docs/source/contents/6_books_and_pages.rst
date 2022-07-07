@@ -173,13 +173,13 @@ Export
 ======
 
 In addition to import functionality, images should have a variety of export options including the ability to export only
-filesets related to preservation for easy transfer to Chronopolis.  Those filesets should be:
+filesets related to preservation for easy transfer to Chronopolis.  Those filesets should include:
 
+* RDF about the :code:`pcdmworks:Work`
+* RDF about the :code:`ore:Proxy`
+* RDF about the pages
 * :code:`pcdmuse:PreservationFile`
 
----------
-Analytics
----------
 
 ------------
 Restrictions
@@ -187,9 +187,3 @@ Restrictions
 
 Like other work types, video works may have restrictions at the work and fileset / file level.
 
-------------
-For UTK Only
-------------
-
-Migration Notes
-===============
