@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "utk-future-dc-worktypes"
+version = "0.1.0"
+description = ""
+authors = ["Mark Baggett <mbagget1@utk.edu>"]
+readme = "README.md"
+packages = [{include = "utk_future_dc_worktypes"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+sphinx-rtd-theme = "^1.2.2"
+sphinx = "5.3.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
